@@ -219,27 +219,12 @@ export default function Footer() {
 
                 {/* Bottom bar */}
                 <div
-                    className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+                    className="pt-8 flex items-center justify-center"
                     style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                    <p className="text-xs text-slate-500 text-center sm:text-left">
+                    <p className="text-xs text-slate-500 text-center">
                         &copy; {currentYear} SMB Mitra. All rights reserved. Built with ♥ in Telangana, India.
                     </p>
-                    <div className="flex items-center gap-4 sm:gap-6 text-xs text-slate-500 flex-wrap justify-center">
-                        <span className="flex items-center gap-1.5" aria-label="SSL Secured">
-                            <span
-                                className="w-4 h-4 rounded-full flex items-center justify-center text-white text-[9px] font-bold"
-                                style={{ background: "#16a34a" }}
-                            >✓</span>
-                            SSL Secured
-                        </span>
-                        <span
-                            className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider"
-                            style={{ background: "rgba(30,64,175,0.15)", color: "#60a5fa", border: "1px solid rgba(30,64,175,0.3)" }}
-                        >
-                            Google Partner
-                        </span>
-                    </div>
                 </div>
             </div>
         </footer>
