@@ -137,6 +137,37 @@ export default function PerformanceMarketingPage() {
                 </FadeUp>
             </section>
 
+            {/* Indicative Pricing Banner */}
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="Performance marketing pricing">
+                <FadeUp>
+                    <div className="bg-orange-50/60 border border-orange-200 p-8 sm:p-10 rounded-3xl text-center">
+                        <span className="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-orange-200 text-[#F97316]">
+                            Transparent Ad Management
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-3">
+                            Performance Marketing Pricing
+                        </h2>
+                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium">
+                            Lead Launchpad from <strong className="text-slate-900 font-bold">₹14,999/mo</strong> • Scale Engine from <strong className="text-slate-900 font-bold">₹29,999/mo</strong>. Minimum ad spend ₹15,000/mo billed directly to ad networks.
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <Link
+                                href="/pricing"
+                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#F97316] hover:bg-orange-600 text-white font-bold text-sm shadow-md transition-all"
+                            >
+                                Compare Marketing Tiers
+                            </Link>
+                            <Link
+                                href="/contact"
+                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-bold text-sm transition-all"
+                            >
+                                Request Free Ad Audit
+                            </Link>
+                        </div>
+                    </div>
+                </FadeUp>
+            </section>
+
             {/* FAQ */}
             <section
                 className="container mx-auto px-4 sm:px-6 max-w-3xl mb-14 sm:mb-20 border border-slate-100 p-8 sm:p-10 rounded-3xl shadow-sm bg-white"

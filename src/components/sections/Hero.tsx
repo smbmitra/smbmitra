@@ -6,9 +6,9 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 import { useRef } from "react";
 
 const stats = [
-    { value: "50+", label: "SMBs Served" },
-    { value: "3×", label: "Avg Lead Growth" },
-    { value: "24h", label: "Response Time" },
+    { value: "100%", label: "Transparent Reporting" },
+    { value: "Zero", label: "Lock-in Contracts" },
+    { value: "< 24h", label: "Response Guarantee" },
 ];
 
 export default function Hero() {

@@ -152,6 +152,37 @@ export default function WebsiteDevelopmentPage() {
                 </FadeUp>
             </section>
 
+            {/* Indicative Pricing Banner */}
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="Website development packages">
+                <FadeUp>
+                    <div className="bg-slate-50 border border-slate-200 p-8 sm:p-10 rounded-3xl text-center">
+                        <span className="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-blue-100 text-[#1E40AF]">
+                            Transparent Investment
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-3">
+                            Website Development Pricing
+                        </h2>
+                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium">
+                            Starter Business Sites from <strong className="text-slate-900 font-bold">₹19,999</strong> • Growth Portals from <strong className="text-slate-900 font-bold">₹39,999</strong>. No hidden hosting surcharges or recurring code locks.
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <Link
+                                href="/pricing"
+                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#1E40AF] hover:bg-blue-800 text-white font-bold text-sm shadow-md transition-all"
+                            >
+                                Compare All Packages & Features
+                            </Link>
+                            <Link
+                                href="/portfolio"
+                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-bold text-sm transition-all"
+                            >
+                                View Web Build Samples
+                            </Link>
+                        </div>
+                    </div>
+                </FadeUp>
+            </section>
+
             {/* FAQ */}
             <section
                 className="container mx-auto px-4 sm:px-6 max-w-3xl mb-16 sm:mb-20 border border-slate-100 p-8 sm:p-10 rounded-3xl shadow-sm bg-white"

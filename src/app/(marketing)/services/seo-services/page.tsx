@@ -135,6 +135,37 @@ export default function SEOServicesPage() {
                 </FadeUp>
             </section>
 
+            {/* Indicative Pricing Banner */}
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="SEO pricing">
+                <FadeUp>
+                    <div className="bg-blue-50/60 border border-blue-200 p-8 sm:p-10 rounded-3xl text-center">
+                        <span className="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-blue-200 text-[#1E40AF]">
+                            Transparent SEO Pricing
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-3">
+                            Search Engine Optimization Pricing
+                        </h2>
+                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium">
+                            Local SEO Dominance from <strong className="text-slate-900 font-bold">₹12,000/mo</strong> • Organic Growth Authority from <strong className="text-slate-900 font-bold">₹24,000/mo</strong>. Flexible monthly billing, zero lock-in contracts.
+                        </p>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <Link
+                                href="/pricing"
+                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#1E40AF] hover:bg-blue-800 text-white font-bold text-sm shadow-md transition-all"
+                            >
+                                Compare All SEO Tiers
+                            </Link>
+                            <Link
+                                href="/contact"
+                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-bold text-sm transition-all"
+                            >
+                                Get Free Local Rank Audit
+                            </Link>
+                        </div>
+                    </div>
+                </FadeUp>
+            </section>
+
             {/* FAQ */}
             <section
                 className="container mx-auto px-4 sm:px-6 max-w-3xl mb-14 sm:mb-20 border border-slate-100 p-8 sm:p-10 rounded-3xl shadow-sm bg-white"
