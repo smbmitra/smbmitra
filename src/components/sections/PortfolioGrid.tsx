@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, CheckCircle2, ArrowRight, Laptop, Smartphone, Cpu, Layers } from "lucide-react";
+import { ExternalLink, CheckCircle2, ArrowRight, Globe } from "lucide-react";
 import { FadeUp } from "../animations/FadeUp";
 import Link from "next/link";
 
@@ -21,6 +21,78 @@ interface PortfolioItem {
 }
 
 const portfolioData: PortfolioItem[] = [
+  {
+    id: "procorp-projects",
+    title: "PROCORP Technologies | Academic & IEEE Projects Portal",
+    category: "Web Development",
+    categoryKey: "web",
+    clientType: "EdTech & Engineering Institute",
+    description:
+      "A comprehensive academic project directory and training portal engineered for engineering students in Hyderabad, featuring IEEE project tracks, domain-wise course listings, and automated student inquiry management.",
+    techStack: ["WordPress", "Custom PHP", "MySQL", "Yoast SEO", "Lead Engine"],
+    metrics: [
+      { label: "Project Tracks", value: "500+" },
+      { label: "Student Inquiries", value: "10,000+" },
+      { label: "Search Visibility", value: "Top 3 Rank" },
+    ],
+    deliverables: [
+      "IEEE Academic Project Catalog",
+      "Domain-Specific Course & Training Pages",
+      "High-Conversion Student Lead Forms",
+      "Responsive Multi-Device Layout",
+    ],
+    mockupBg: "linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #0369a1 100%)",
+    badgeText: "Live Client Build",
+    demoUrl: "https://procorpprojects.com/",
+  },
+  {
+    id: "raveen-revathi-wedding",
+    title: "Raveen & Revathi | Luxury Interactive Wedding Portal",
+    category: "Web Development",
+    categoryKey: "web",
+    clientType: "Events & Digital Invitations",
+    description:
+      "An exquisite, bespoke digital wedding invitation platform featuring opulent typography, interactive event timelines, venue navigation integration, photo memory albums, and digital RSVP capture.",
+    techStack: ["React", "Vite", "Tailwind CSS", "Cinzel Typography", "Netlify"],
+    metrics: [
+      { label: "Load Speed", value: "0.6s" },
+      { label: "Mobile Experience", value: "100% Fluid" },
+      { label: "Design Style", value: "Luxury Gold" },
+    ],
+    deliverables: [
+      "Interactive Multi-Event Schedule & Countdown",
+      "Integrated Google Maps Venue Navigation",
+      "Photo Memories & Story Showcase",
+      "Digital RSVP & Wishes Registry",
+    ],
+    mockupBg: "linear-gradient(135deg, #78350f 0%, #b45309 50%, #d97706 100%)",
+    badgeText: "Live Event Build",
+    demoUrl: "https://raveenrevathiwedding.netlify.app/",
+  },
+  {
+    id: "sai-stark-bucket-list",
+    title: "Sai Stark | 78 Ultimate Life Experiences Tracker",
+    category: "Custom Software",
+    categoryKey: "software",
+    clientType: "Personal Brand & Milestones App",
+    description:
+      "A high-performance interactive web application and milestone tracking platform managing 78 extreme adventures, high-altitude expeditions, and travel dreams with live SVG progress analytics and dynamic search.",
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Lucide Icons"],
+    metrics: [
+      { label: "Milestones Tracked", value: "78 Goals" },
+      { label: "Analytics", value: "Real-Time SVG" },
+      { label: "UI Theme", value: "Glassmorphic Dark" },
+    ],
+    deliverables: [
+      "Real-Time Circular Progress Visualizer",
+      "Dynamic Category Filters & Instant Search",
+      "Secured Admin Portal Authentication",
+      "High-Resolution Moments Photo Gallery",
+    ],
+    mockupBg: "linear-gradient(135deg, #064e3b 0%, #059669 50%, #10b981 100%)",
+    badgeText: "Live Web Application",
+    demoUrl: "https://saistark.smbmitra.com/",
+  },
   {
     id: "ecommerce-storefront",
     title: "High-Speed Retail E-Commerce Portal",
@@ -159,10 +231,23 @@ export default function PortfolioGrid() {
                   className="p-8 sm:p-10 relative overflow-hidden text-white flex flex-col justify-between min-h-[220px]"
                   style={{ background: item.mockupBg }}
                 >
-                  <div className="flex items-center justify-between z-10">
-                    <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-white/20 backdrop-blur-md border border-white/20">
-                      {item.badgeText}
-                    </span>
+                  <div className="flex items-center justify-between z-10 flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-white/20 backdrop-blur-md border border-white/20">
+                        {item.badgeText}
+                      </span>
+                      {item.demoUrl && (
+                        <a
+                          href={item.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-white/25 hover:bg-white/40 text-white backdrop-blur-md transition-colors border border-white/30"
+                          title="Open Live Website"
+                        >
+                          <Globe size={12} /> Live Site ↗
+                        </a>
+                      )}
+                    </div>
                     <span className="text-xs font-semibold text-white/80">
                       {item.clientType}
                     </span>
@@ -238,12 +323,24 @@ export default function PortfolioGrid() {
                       ))}
                     </div>
 
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center text-xs sm:text-sm font-bold text-[#1E40AF] hover:text-blue-800 shrink-0 group-hover:translate-x-1 transition-transform"
-                    >
-                      Request Similar Build <ArrowRight size={14} className="ml-1" />
-                    </Link>
+                    <div className="flex items-center gap-4 flex-wrap">
+                      {item.demoUrl && (
+                        <a
+                          href={item.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-xs sm:text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+                        >
+                          Live Site <ExternalLink size={14} className="ml-1" />
+                        </a>
+                      )}
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center text-xs sm:text-sm font-bold text-[#1E40AF] hover:text-blue-800 shrink-0 group-hover:translate-x-1 transition-transform"
+                      >
+                        Request Similar Build <ArrowRight size={14} className="ml-1" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -254,3 +351,4 @@ export default function PortfolioGrid() {
     </section>
   );
 }
+
