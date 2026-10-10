@@ -67,8 +67,8 @@ export default function AboutHeroParallax() {
 
             {/* Wave divider */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none" aria-hidden="true">
-                <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-12 sm:h-16">
-                    <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#F8FAFC" />
+                <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" className="w-full h-10 sm:h-14">
+                    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="#ffffff" />
                 </svg>
             </div>
         </section>

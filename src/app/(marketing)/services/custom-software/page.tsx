@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { ArrowRight, Code, CheckCircle, Database, HelpCircle } from 'lucide-react';
 import { FadeUp } from '@/components/animations/FadeUp';
+import FAQAccordion from '@/components/sections/FAQAccordion';
 
 export const metadata: Metadata = {
     title: 'Custom Software Development for SMBs | SMB Mitra',
@@ -16,6 +18,55 @@ export const metadata: Metadata = {
             'Stop forcing your business rules into off-the-shelf SaaS. Get software that bends to your workflow.',
         url: 'https://smbmitra.com/services/custom-software',
     },
+};
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://smbmitra.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://smbmitra.com/services"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Custom Software",
+                    "item": "https://smbmitra.com/services/custom-software"
+                }
+            ]
+        },
+        {
+            "@type": "Service",
+            "name": "Custom Software & Business Automation Development",
+            "serviceType": "Software Development",
+            "description": "Tailored ERP systems, custom CRMs, internal management dashboards, and workflow automation for growing businesses.",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "SMB Mitra",
+                "url": "https://smbmitra.com",
+                "telephone": "+91-9502335120",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Jangaon",
+                    "addressRegion": "Telangana",
+                    "postalCode": "506167",
+                    "addressCountry": "IN"
+                }
+            },
+            "areaServed": "IN"
+        }
+    ]
 };
 
 const steps = [
@@ -46,30 +97,49 @@ const faqs = [
 export default function CustomSoftwarePage() {
     return (
         <div className="pb-20 sm:pb-24 bg-white min-h-screen">
-            {/* Hero */}
-            <section className="container mx-auto px-4 sm:px-6 max-w-5xl pt-10 sm:pt-14 mb-16 sm:mb-24">
-                <FadeUp>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-50 text-[#F97316] font-semibold text-sm mb-5 sm:mb-6 border border-orange-100">
-                        <Code size={16} aria-hidden="true" /> Scalable Architecture
-                    </div>
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-5 sm:mb-6 leading-[1.1] tracking-tight">
-                        Software That Bends to{' '}
-                        <br className="hidden md:block" />
-                        Your Business Rules.
-                    </h1>
-                    <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-8 sm:mb-10 max-w-3xl leading-relaxed">
-                        Stop forcing your business rules to fit into off-the-shelf SaaS apps. We
-                        build custom dashboards, data management tools, and CRMs that match exactly
-                        how your company operates.
-                    </p>
-                    <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-2 bg-[#F97316] hover:bg-[#E06512] text-white font-bold px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5"
-                    >
-                        Discuss Your App Idea <ArrowRight size={20} aria-hidden="true" />
-                    </Link>
-                </FadeUp>
-            </section>
+            <Script
+                id="custom-software-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
+            {/* Dark hero */}
+            <div
+                className="relative -mx-4 sm:-mx-6 mb-16 sm:mb-20 px-4 sm:px-6 py-16 sm:py-20 overflow-hidden"
+                style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1a2d6b 50%, #0F172A 100%)' }}
+            >
+                <div className="absolute inset-0 pointer-events-none opacity-[0.04]" aria-hidden="true"
+                    style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '60px 60px' }}
+                />
+                <div className="relative z-10 max-w-5xl mx-auto">
+                    <FadeUp>
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 backdrop-blur-md text-white/80 font-bold text-xs uppercase tracking-wider mb-5 sm:mb-6">
+                            <Code size={15} className="text-[#60a5fa]" aria-hidden="true" /> Scalable Architecture
+                        </div>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-5 sm:mb-6 leading-[1.1] tracking-tight">
+                            Software Built Explicitly for{' '}
+                            <br className="hidden md:block" />
+                            <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #60a5fa, #F97316)' }}>Your Business Rules.</span>
+                        </h1>
+                        <p className="text-base sm:text-lg md:text-xl text-slate-300 mb-8 sm:mb-10 max-w-3xl leading-relaxed font-medium">
+                            Stop forcing your operational rules to fit into restrictive off-the-shelf SaaS. We
+                            build custom dashboards, ERPs, client portals, and billing tools that match exactly
+                            how your business operates.
+                        </p>
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-2 font-bold px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl shadow-lg transition-all hover:-translate-y-0.5 text-slate-900"
+                            style={{ background: 'linear-gradient(135deg, #F97316, #fb923c)', boxShadow: '0 0 20px rgba(249,115,22,0.3)' }}
+                        >
+                            Discuss Your Application <ArrowRight size={20} aria-hidden="true" />
+                        </Link>
+                    </FadeUp>
+                </div>
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none pointer-events-none" aria-hidden="true">
+                    <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-8 sm:h-10">
+                        <path d="M0,20 C360,40 1080,0 1440,20 L1440,40 L0,40 Z" fill="#ffffff" />
+                    </svg>
+                </div>
+            </div>
 
             {/* Who is this for */}
             <section className="bg-slate-50 py-14 sm:py-20 mb-16 sm:mb-24" aria-label="Target audience">
@@ -137,31 +207,31 @@ export default function CustomSoftwarePage() {
                 </FadeUp>
             </section>
 
-            {/* Indicative Pricing Banner */}
-            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="Custom software pricing">
+            {/* Custom Scope & Architecture Discovery Banner */}
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="Custom software consultation">
                 <FadeUp>
-                    <div className="bg-orange-50/60 border border-orange-200 p-8 sm:p-10 rounded-3xl text-center">
+                    <div className="bg-gradient-to-br from-orange-50/70 to-slate-50 border border-orange-200 p-8 sm:p-12 rounded-3xl text-center shadow-sm relative overflow-hidden">
                         <span className="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-orange-200 text-[#F97316]">
-                            Transparent Software Scope
+                            100% Code Ownership &amp; IP Transfer
                         </span>
-                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-3">
-                            Custom Software & Automation Pricing
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-4 mb-3 tracking-tight">
+                            Build Custom Operational Tools That Bend to Your Workflow
                         </h2>
-                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium">
-                            Automation Apps from <strong className="text-slate-900 font-bold">₹49,999</strong> • Enterprise SaaS Platforms from <strong className="text-slate-900 font-bold">₹99,999+</strong>. 100% full source code ownership included.
+                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
+                            Tell us what processes slow your team down. We design a secure, custom PostgreSQL / Next.js architecture tailored to your exact business rules with complete source code handover.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
-                                href="/pricing"
-                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#F97316] hover:bg-orange-600 text-white font-bold text-sm shadow-md transition-all"
+                                href="/contact"
+                                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#F97316] hover:bg-[#ea580c] text-white font-bold text-sm sm:text-base shadow-lg shadow-orange-500/20 hover:-translate-y-0.5 transition-all"
                             >
-                                Compare Software Packages
+                                Discuss Your Architecture
                             </Link>
                             <Link
                                 href="/portfolio"
-                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-bold text-sm transition-all"
+                                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold text-sm sm:text-base transition-all"
                             >
-                                Explore Software Prototypes
+                                View Live Web Apps ↗
                             </Link>
                         </div>
                     </div>
@@ -169,27 +239,13 @@ export default function CustomSoftwarePage() {
             </section>
 
             {/* FAQ */}
-            <section
-                className="container mx-auto px-4 sm:px-6 max-w-3xl mb-14 sm:mb-20 border border-slate-100 p-8 sm:p-10 rounded-3xl shadow-sm bg-white"
-                aria-label="Frequently asked questions"
-            >
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-14 sm:mb-20" aria-label="Frequently asked questions">
                 <FadeUp>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 text-center tracking-tight">
-                        Frequently Asked Questions
-                    </h2>
-                    <div className="space-y-5 sm:space-y-6">
-                        {faqs.map((faq, i) => (
-                            <div key={i}>
-                                <h3 className="flex items-start gap-2 font-bold text-base sm:text-lg text-slate-800">
-                                    <HelpCircle size={20} className="text-[#F97316] shrink-0 mt-0.5" aria-hidden="true" />
-                                    {faq.q}
-                                </h3>
-                                <p className="text-slate-600 pl-7 mt-2 text-sm sm:text-base leading-relaxed">
-                                    {faq.a}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
+                    <FAQAccordion
+                        faqs={faqs}
+                        title="Custom Software FAQs"
+                        subtitle="Answers on IP ownership, system architecture, database security, and post-deployment maintenance."
+                    />
                 </FadeUp>
             </section>
 

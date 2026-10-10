@@ -76,27 +76,18 @@ export default function ServicesOverview() {
 
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
                 {/* Header */}
-                <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 justify-between mb-16 sm:mb-20 lg:items-end">
+                <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 justify-between mb-14 sm:mb-18 lg:items-end">
                     <FadeUp className="max-w-2xl">
-                        <div
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 text-white"
-                            style={{ background: "linear-gradient(135deg, #1E40AF, #2563eb)" }}
-                        >
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 bg-blue-50 text-[#1E40AF] border border-blue-200/80">
                             Core Capabilities
                         </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.08] tracking-tight">
-                            End-to-end digital{" "}
-                            <span
-                                className="bg-clip-text text-transparent"
-                                style={{ backgroundImage: "linear-gradient(135deg, #1E40AF, #F97316)" }}
-                            >
-                                mastery.
-                            </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-[1.14] tracking-tight">
+                            End-to-End Digital Solutions Built for Growth.
                         </h2>
                     </FadeUp>
                     <FadeUp delay={0.15} className="max-w-md">
-                        <p className="text-lg sm:text-xl text-slate-600 font-medium leading-relaxed">
-                            We unify development, marketing, and software into a single powerhouse designed to scale SMBs predictably.
+                        <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
+                            We unify web development, performance marketing, and custom software into a single cohesive engine designed to scale your business.
                         </p>
                     </FadeUp>
                 </div>

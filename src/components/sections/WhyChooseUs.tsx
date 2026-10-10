@@ -71,22 +71,16 @@ export default function WhyChooseUs() {
 
             <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
                 {/* Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+                <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-18">
                     <FadeUp>
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-5 text-white"
-                            style={{ background: "linear-gradient(135deg, #F97316, #fb923c)" }}>
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 bg-blue-50 text-[#1E40AF] border border-blue-200/80">
                             The SMB Mitra Difference
                         </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-5 sm:mb-6 leading-[1.1] tracking-tight">
-                            We operate as your{" "}
-                            <span className="bg-clip-text text-transparent"
-                                style={{ backgroundImage: "linear-gradient(135deg, #1E40AF, #F97316)" }}>
-                                outsourced growth
-                            </span>{" "}
-                            department.
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 sm:mb-5 leading-[1.15] tracking-tight">
+                            We Operate as Your Dedicated Growth &amp; Technology Department.
                         </h2>
-                        <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                            Most agencies simply build and walk away. We engineer long-term technical and marketing solutions designed explicitly to drive local revenue.
+                        <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
+                            Most agencies simply build and walk away. We engineer long-term technical and marketing solutions designed explicitly to drive sustainable business revenue.
                         </p>
                     </FadeUp>
                 </div>

@@ -138,7 +138,6 @@ export default function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "Portfolio Showcase", href: "/portfolio" },
-                { label: "Pricing & Tiers", href: "/pricing" },
                 { label: "Growth Blog", href: "/blog" },
                 { label: "About Us", href: "/about" },
                 { label: "Services", href: "/services" },
@@ -289,13 +288,30 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="pt-8 flex items-center justify-center"
+          className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4"
           style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
         >
-          <p className="text-xs text-slate-500 text-center">
-            &copy; {currentYear} SMB Mitra. All rights reserved. Built with ♥ in
-            Telangana, India.
+          <p className="text-xs text-slate-500 text-center md:text-left">
+            &copy; {currentYear} SMB Mitra. All rights reserved.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-400">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <span>•</span>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms &amp; Conditions
+            </Link>
+            <span>•</span>
+            <Link href="/disclaimer" className="hover:text-white transition-colors">
+              Disclaimer
+            </Link>
+            <span>•</span>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">
+              Cookie Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

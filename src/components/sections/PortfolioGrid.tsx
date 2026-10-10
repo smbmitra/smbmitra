@@ -1,20 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { ExternalLink, CheckCircle2, ArrowRight, Globe } from "lucide-react";
+import { ExternalLink, ArrowRight, Globe, Sparkles } from "lucide-react";
 import { FadeUp } from "../animations/FadeUp";
 import Link from "next/link";
 
 interface PortfolioItem {
   id: string;
-  title: string;
+  name: string;
+  subtitle: string;
   category: "Web Development" | "Custom Software" | "Performance Ads" | "Local SEO";
   categoryKey: "web" | "software" | "ads" | "seo";
   clientType: string;
   description: string;
   techStack: string[];
-  metrics: { label: string; value: string }[];
-  deliverables: string[];
   mockupBg: string;
   badgeText: string;
   demoUrl?: string;
@@ -22,168 +21,112 @@ interface PortfolioItem {
 
 const portfolioData: PortfolioItem[] = [
   {
-    id: "procorp-projects",
-    title: "PROCORP Technologies | Academic & IEEE Projects Portal",
+    id: "srk-estates",
+    name: "SRK Estates",
+    subtitle: "Real Estate Channel Partner Portal",
     category: "Web Development",
     categoryKey: "web",
-    clientType: "EdTech & Engineering Institute",
+    clientType: "Real Estate (Hyderabad)",
     description:
-      "A comprehensive academic project directory and training portal engineered for engineering students in Hyderabad, featuring IEEE project tracks, domain-wise course listings, and automated student inquiry management.",
-    techStack: ["WordPress", "Custom PHP", "MySQL", "Yoast SEO", "Lead Engine"],
-    metrics: [
-      { label: "Project Tracks", value: "500+" },
-      { label: "Student Inquiries", value: "10,000+" },
-      { label: "Search Visibility", value: "Top 3 Rank" },
-    ],
-    deliverables: [
-      "IEEE Academic Project Catalog",
-      "Domain-Specific Course & Training Pages",
-      "High-Conversion Student Lead Forms",
-      "Responsive Multi-Device Layout",
-    ],
+      "RERA-verified property discovery portal with interactive project showcases, mobile-optimized floor plans, and instant WhatsApp lead capture.",
+    techStack: ["WordPress", "Custom PHP", "RankMath SEO", "WhatsApp Engine"],
+    mockupBg: "linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3b82f6 100%)",
+    badgeText: "Live Client Build",
+    demoUrl: "https://thesrkestates.com/",
+  },
+  {
+    id: "procorp-projects",
+    name: "PROCORP Technologies",
+    subtitle: "Academic & IEEE Training Portal",
+    category: "Web Development",
+    categoryKey: "web",
+    clientType: "EdTech & Training (Hyderabad)",
+    description:
+      "Academic project catalog and training directory featuring 500+ IEEE project tracks and automated student inquiry routing.",
+    techStack: ["WordPress", "Custom PHP", "MySQL", "Lead Engine"],
     mockupBg: "linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #0369a1 100%)",
     badgeText: "Live Client Build",
     demoUrl: "https://procorpprojects.com/",
   },
   {
+    id: "sai-stark-bucket-list",
+    name: "Sai Stark",
+    subtitle: "78 Adventures & Milestone Web App",
+    category: "Custom Software",
+    categoryKey: "software",
+    clientType: "Personal Brand & Web App",
+    description:
+      "High-performance interactive web application tracking 78 extreme life adventures with real-time SVG progress analytics and dynamic search.",
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    mockupBg: "linear-gradient(135deg, #064e3b 0%, #059669 50%, #10b981 100%)",
+    badgeText: "Live Web App",
+    demoUrl: "https://saistark.smbmitra.com/",
+  },
+  {
     id: "raveen-revathi-wedding",
-    title: "Raveen & Revathi | Luxury Interactive Wedding Portal",
+    name: "Raveen & Revathi",
+    subtitle: "Luxury Interactive Event Portal",
     category: "Web Development",
     categoryKey: "web",
     clientType: "Events & Digital Invitations",
     description:
-      "An exquisite, bespoke digital wedding invitation platform featuring opulent typography, interactive event timelines, venue navigation integration, photo memory albums, and digital RSVP capture.",
-    techStack: ["React", "Vite", "Tailwind CSS", "Cinzel Typography", "Netlify"],
-    metrics: [
-      { label: "Load Speed", value: "0.6s" },
-      { label: "Mobile Experience", value: "100% Fluid" },
-      { label: "Design Style", value: "Luxury Gold" },
-    ],
-    deliverables: [
-      "Interactive Multi-Event Schedule & Countdown",
-      "Integrated Google Maps Venue Navigation",
-      "Photo Memories & Story Showcase",
-      "Digital RSVP & Wishes Registry",
-    ],
+      "Bespoke digital wedding portal with interactive event schedules, Google Maps venue navigation, photo galleries, and digital RSVP.",
+    techStack: ["React", "Vite", "Tailwind CSS", "Netlify"],
     mockupBg: "linear-gradient(135deg, #78350f 0%, #b45309 50%, #d97706 100%)",
     badgeText: "Live Event Build",
     demoUrl: "https://raveenrevathiwedding.netlify.app/",
   },
   {
-    id: "sai-stark-bucket-list",
-    title: "Sai Stark | 78 Ultimate Life Experiences Tracker",
-    category: "Custom Software",
-    categoryKey: "software",
-    clientType: "Personal Brand & Milestones App",
-    description:
-      "A high-performance interactive web application and milestone tracking platform managing 78 extreme adventures, high-altitude expeditions, and travel dreams with live SVG progress analytics and dynamic search.",
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Lucide Icons"],
-    metrics: [
-      { label: "Milestones Tracked", value: "78 Goals" },
-      { label: "Analytics", value: "Real-Time SVG" },
-      { label: "UI Theme", value: "Glassmorphic Dark" },
-    ],
-    deliverables: [
-      "Real-Time Circular Progress Visualizer",
-      "Dynamic Category Filters & Instant Search",
-      "Secured Admin Portal Authentication",
-      "High-Resolution Moments Photo Gallery",
-    ],
-    mockupBg: "linear-gradient(135deg, #064e3b 0%, #059669 50%, #10b981 100%)",
-    badgeText: "Live Web Application",
-    demoUrl: "https://saistark.smbmitra.com/",
-  },
-  {
     id: "ecommerce-storefront",
-    title: "High-Speed Retail E-Commerce Portal",
+    name: "Retail E-Commerce Engine",
+    subtitle: "Mobile-First Storefront & WhatsApp Checkout",
     category: "Web Development",
     categoryKey: "web",
-    clientType: "Fashion & Retail SMB",
+    clientType: "Fashion & Retail",
     description:
-      "A headless Next.js e-commerce application built for maximum mobile speed, instant catalog filter searching, and seamless WhatsApp Checkout integration.",
-    techStack: ["Next.js 14", "Tailwind CSS", "TypeScript", "Razorpay", "WhatsApp API"],
-    metrics: [
-      { label: "PageSpeed Score", value: "98/100" },
-      { label: "Load Time", value: "0.8s" },
-      { label: "Mobile Checkout", value: "3-Step" },
-    ],
-    deliverables: [
-      "Custom UI/UX Design System",
-      "Dynamic Product Search & Filter",
-      "Instant WhatsApp Order Receiver",
-      "Payment Gateway Integration",
-    ],
+      "Sub-second Next.js storefront engineered for rapid mobile product discovery, instant filter searching, and 3-step WhatsApp checkout.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "WhatsApp API"],
     mockupBg: "linear-gradient(135deg, #1E40AF 0%, #3B82F6 100%)",
     badgeText: "Web Dev Prototype",
   },
   {
     id: "smb-erp-inventory",
-    title: "SMB Inventory & Billing ERP Dashboard",
+    name: "SMB Operations & Billing ERP",
+    subtitle: "Cloud Invoicing & Stock Dashboard",
     category: "Custom Software",
     categoryKey: "software",
     clientType: "Wholesale & Distribution",
     description:
-      "A streamlined cloud-based web application enabling small business owners to track inventory levels, issue GST invoices, and monitor daily revenue in real-time.",
-    techStack: ["React", "Node.js", "PostgreSQL", "TailwindCSS", "Chart.js"],
-    metrics: [
-      { label: "Invoice Time", value: "< 15s" },
-      { label: "Offline Sync", value: "Supported" },
-      { label: "Multi-User", value: "Role-Based" },
-    ],
-    deliverables: [
-      "Real-Time Stock Counter",
-      "One-Click Automated GST Invoicing",
-      "Role-Based Employee Access",
-      "Daily Profit & Loss Analytics",
-    ],
+      "Custom web dashboard enabling businesses to manage inventory, generate automated GST invoices in <15s, and track real-time profit & loss.",
+    techStack: ["React", "Node.js", "PostgreSQL", "Tailwind CSS"],
     mockupBg: "linear-gradient(135deg, #0F172A 0%, #1E293B 100%)",
     badgeText: "Software Prototype",
   },
   {
     id: "healthcare-clinic-funnel",
-    title: "Multi-Specialty Clinic Lead Engine",
+    name: "Healthcare Lead Engine",
+    subtitle: "Google & Meta Patient Acquisition Funnel",
     category: "Performance Ads",
     categoryKey: "ads",
-    clientType: "Healthcare & Dental Clinic",
+    clientType: "Clinics & Healthcare",
     description:
-      "High-converting landing page paired with Meta & Google Ads campaign strategy engineered to capture qualified local patient appointments predictably.",
-    techStack: ["Google Ads", "Meta Ads", "Next.js", "Form CRM", "Twilio SMS"],
-    metrics: [
-      { label: "Conv. Rate Target", value: "14.2%" },
-      { label: "Lead Response", value: "< 5 Mins" },
-      { label: "Tracking", value: "Server-Side API" },
-    ],
-    deliverables: [
-      "High-Trust Mobile Landing Page",
-      "Localized Geo-Targeted Meta Ads",
-      "Instant Lead SMS & WhatsApp Alert",
-      "Automated Appointment Scheduler",
-    ],
+      "High-converting landing page architecture paired with geo-targeted Google Search & Meta ad funnels for predictable patient bookings.",
+    techStack: ["Google Ads", "Meta Ads", "Next.js", "CRM Sync"],
     mockupBg: "linear-gradient(135deg, #059669 0%, #10B981 100%)",
     badgeText: "Lead Gen Engine",
   },
   {
     id: "realestate-lead-portal",
-    title: "Property Showcase & Lead Automation Portal",
+    name: "Local Search & SEO Portal",
+    subtitle: "Google Maps & Local Search Rank Engine",
     category: "Local SEO",
     categoryKey: "seo",
-    clientType: "Real Estate & Commercial Builders",
+    clientType: "Local Businesses",
     description:
-      "SEO-structured property listing showcase engineered to rank on Google for localized high-intent buyer searches and instantly route lead inquiries.",
-    techStack: ["Next.js", "Schema.org Markup", "Tailwind CSS", "Local SEO"],
-    metrics: [
-      { label: "Schema Validation", value: "100% Passed" },
-      { label: "Core Web Vitals", value: "All Green" },
-      { label: "Mobile Score", value: "99/100" },
-    ],
-    deliverables: [
-      "Localized Keyword Optimization",
-      "Interactive Property Floor Plans",
-      "Google Business Profile Sync",
-      "Automated Buyer Inquiry CRM",
-    ],
+      "Structured property and service catalog with Schema.org markup, Google Maps 3-Pack optimization, and automated lead capture.",
+    techStack: ["Next.js", "Schema.org", "Local SEO", "GMB Sync"],
     mockupBg: "linear-gradient(135deg, #D97706 0%, #F59E0B 100%)",
-    badgeText: "SEO & Web Prototype",
+    badgeText: "SEO Prototype",
   },
 ];
 
@@ -196,24 +139,24 @@ export default function PortfolioGrid() {
       : portfolioData.filter((item) => item.categoryKey === activeFilter);
 
   return (
-    <section className="py-16 sm:py-24 bg-white" aria-label="Portfolio and build showcase">
+    <section className="py-14 sm:py-20 bg-slate-50 border-b border-slate-200" aria-label="Portfolio showcase">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16">
+        <div className="flex flex-wrap justify-center gap-2 mb-12 sm:mb-14">
           {[
-            { label: "All Works", key: "all" },
+            { label: "All Projects", key: "all" },
             { label: "Web Development", key: "web" },
             { label: "Custom Software", key: "software" },
-            { label: "Performance Ads", key: "ads" },
+            { label: "Performance Marketing", key: "ads" },
             { label: "Local SEO", key: "seo" },
           ].map((filter) => (
             <button
               key={filter.key}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 ${
+              className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
                 activeFilter === filter.key
-                  ? "bg-slate-900 text-white shadow-md"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                  ? "bg-[#1E40AF] text-white shadow-md shadow-blue-900/15"
+                  : "bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-100/70"
               }`}
             >
               {filter.label}
@@ -221,125 +164,79 @@ export default function PortfolioGrid() {
           ))}
         </div>
 
-        {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+        {/* Streamlined Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
           {filteredItems.map((item, index) => (
-            <FadeUp key={item.id} delay={index * 0.1}>
-              <div className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
-                {/* Visual Header / Mockup Banner */}
+            <FadeUp key={item.id} delay={index * 0.06}>
+              <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 group flex flex-col justify-between h-full">
+                {/* Visual Card Banner */}
                 <div
-                  className="p-8 sm:p-10 relative overflow-hidden text-white flex flex-col justify-between min-h-[220px]"
+                  className="p-6 sm:p-7 relative overflow-hidden text-white flex flex-col justify-between min-h-[160px]"
                   style={{ background: item.mockupBg }}
                 >
                   <div className="flex items-center justify-between z-10 flex-wrap gap-2">
-                    <div className="flex items-center gap-2">
-                      <span className="px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-white/20 backdrop-blur-md border border-white/20">
-                        {item.badgeText}
-                      </span>
-                      {item.demoUrl && (
-                        <a
-                          href={item.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold bg-white/25 hover:bg-white/40 text-white backdrop-blur-md transition-colors border border-white/30"
-                          title="Open Live Website"
-                        >
-                          <Globe size={12} /> Live Site ↗
-                        </a>
-                      )}
-                    </div>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider bg-white/20 backdrop-blur-md border border-white/20">
+                      {item.badgeText}
+                    </span>
                     <span className="text-xs font-semibold text-white/80">
                       {item.clientType}
                     </span>
                   </div>
 
-                  <div className="z-10 mt-6">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-2">
-                      {item.title}
+                  <div className="z-10 mt-4">
+                    <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white mb-0.5">
+                      {item.name}
                     </h3>
                     <p className="text-xs sm:text-sm text-white/80 font-medium">
-                      {item.category}
+                      {item.subtitle}
                     </p>
                   </div>
 
-                  {/* Decorative background element */}
+                  {/* Decorative background glow */}
                   <div
-                    className="absolute -right-8 -bottom-8 w-40 h-40 rounded-full opacity-20 pointer-events-none"
+                    className="absolute -right-8 -bottom-8 w-36 h-36 rounded-full opacity-25 pointer-events-none"
                     style={{ background: "rgba(255,255,255,0.4)" }}
                   />
                 </div>
 
-                {/* Content Details */}
-                <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
-                  <div>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-6">
-                      {item.description}
-                    </p>
+                {/* Card Body */}
+                <div className="p-6 sm:p-7 flex-grow flex flex-col justify-between">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-6">
+                    {item.description}
+                  </p>
 
-                    {/* Benchmark Metrics Bar */}
-                    <div className="grid grid-cols-3 gap-2 p-4 rounded-2xl bg-white border border-slate-200 mb-6 text-center">
-                      {item.metrics.map((m, i) => (
-                        <div key={i}>
-                          <p className="text-base sm:text-lg font-extrabold text-slate-900">
-                            {m.value}
-                          </p>
-                          <p className="text-[11px] sm:text-xs text-slate-500 font-semibold">
-                            {m.label}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Key Deliverables */}
-                    <h4 className="text-xs uppercase font-extrabold text-slate-400 tracking-wider mb-3">
-                      Built Deliverables
-                    </h4>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-6">
-                      {item.deliverables.map((del, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center text-xs sm:text-sm text-slate-700 font-medium"
-                        >
-                          <CheckCircle2
-                            size={15}
-                            className="text-blue-600 mr-2 shrink-0"
-                          />
-                          {del}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Tech Stack Pills & CTA */}
-                  <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    {/* Tech Tags */}
                     <div className="flex flex-wrap gap-1.5">
                       {item.techStack.map((tech, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-slate-200 text-slate-700"
+                          className="px-2.5 py-0.5 rounded text-[11px] font-semibold bg-slate-100 text-slate-600 border border-slate-200"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex items-center gap-4 flex-wrap">
-                      {item.demoUrl && (
+                    {/* Actions */}
+                    <div className="flex items-center gap-3 shrink-0">
+                      {item.demoUrl ? (
                         <a
                           href={item.demoUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-xs sm:text-sm font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold transition-colors"
                         >
-                          Live Site <ExternalLink size={14} className="ml-1" />
+                          <Globe size={13} /> Live Site <ExternalLink size={11} />
                         </a>
+                      ) : (
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-1 text-xs font-bold text-[#1E40AF] hover:text-blue-800"
+                        >
+                          Request Scope <ArrowRight size={13} />
+                        </Link>
                       )}
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center text-xs sm:text-sm font-bold text-[#1E40AF] hover:text-blue-800 shrink-0 group-hover:translate-x-1 transition-transform"
-                      >
-                        Request Similar Build <ArrowRight size={14} className="ml-1" />
-                      </Link>
                     </div>
                   </div>
                 </div>
@@ -351,4 +248,5 @@ export default function PortfolioGrid() {
     </section>
   );
 }
+
 

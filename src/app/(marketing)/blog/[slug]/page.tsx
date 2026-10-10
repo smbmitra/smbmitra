@@ -46,19 +46,56 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: "2026-08-01",
-    author: {
-      "@type": "Organization",
-      name: post.author.name,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "SMB Mitra",
-      url: "https://smbmitra.com",
-    },
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://smbmitra.com",
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://smbmitra.com/blog",
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": post.title,
+            "item": `https://smbmitra.com/blog/${post.slug}`,
+          },
+        ],
+      },
+      {
+        "@type": "Article",
+        "headline": post.title,
+        "description": post.excerpt,
+        "datePublished": "2026-08-01",
+        "dateModified": "2026-10-10",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://smbmitra.com/blog/${post.slug}`,
+        },
+        "author": {
+          "@type": "Organization",
+          "name": post.author.name,
+          "url": "https://smbmitra.com",
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SMB Mitra",
+          "url": "https://smbmitra.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://smbmitra.com/logo.png",
+          },
+        },
+      },
+    ],
   };
 
   return (

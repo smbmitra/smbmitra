@@ -16,10 +16,8 @@ const subServices = [
 const navLinks = [
     { name: "Home", href: "/" },
     { name: "Portfolio", href: "/portfolio" },
-    { name: "Pricing", href: "/pricing" },
     { name: "Blog", href: "/blog" },
     { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {

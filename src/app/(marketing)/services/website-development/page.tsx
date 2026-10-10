@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { ArrowRight, CheckCircle, HelpCircle, Monitor } from 'lucide-react';
 import { FadeUp } from '@/components/animations/FadeUp';
+import FAQAccordion from '@/components/sections/FAQAccordion';
 
 export const metadata: Metadata = {
     title: 'Website Development for Local Businesses & SMBs | SMB Mitra',
@@ -16,6 +18,55 @@ export const metadata: Metadata = {
             'Lightning-fast, mobile-first websites built on Next.js or WordPress that generate leads on autopilot.',
         url: 'https://smbmitra.com/services/website-development',
     },
+};
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://smbmitra.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://smbmitra.com/services"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Website Development",
+                    "item": "https://smbmitra.com/services/website-development"
+                }
+            ]
+        },
+        {
+            "@type": "Service",
+            "name": "Website Development & Redesign Services",
+            "serviceType": "Web Development",
+            "description": "High-performance, mobile-first, and SEO-optimized website development for Indian small and mid-sized businesses.",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "SMB Mitra",
+                "url": "https://smbmitra.com",
+                "telephone": "+91-9502335120",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Jangaon",
+                    "addressRegion": "Telangana",
+                    "postalCode": "506167",
+                    "addressCountry": "IN"
+                }
+            },
+            "areaServed": "IN"
+        }
+    ]
 };
 
 const steps = [
@@ -46,6 +97,11 @@ const faqs = [
 export default function WebsiteDevelopmentPage() {
     return (
         <div className="pb-20 sm:pb-24 bg-white min-h-screen">
+            <Script
+                id="website-dev-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            />
             {/* Dark hero */}
             <div
                 className="relative -mx-4 sm:-mx-6 mb-16 sm:mb-20 px-4 sm:px-6 py-16 sm:py-20 overflow-hidden"
@@ -152,31 +208,31 @@ export default function WebsiteDevelopmentPage() {
                 </FadeUp>
             </section>
 
-            {/* Indicative Pricing Banner */}
-            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="Website development packages">
+            {/* Custom Scope & Consultation Banner */}
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-24" aria-label="Website development consultation">
                 <FadeUp>
-                    <div className="bg-slate-50 border border-slate-200 p-8 sm:p-10 rounded-3xl text-center">
+                    <div className="bg-gradient-to-br from-slate-50 to-blue-50/40 border border-slate-200 p-8 sm:p-12 rounded-3xl text-center shadow-sm relative overflow-hidden">
                         <span className="px-3.5 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider bg-blue-100 text-[#1E40AF]">
-                            Transparent Investment
+                            Tailored For Your Business
                         </span>
-                        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 mb-3">
-                            Website Development Pricing
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 mt-4 mb-3 tracking-tight">
+                            Ready to Build a Website That Actually Generates Leads?
                         </h2>
-                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium">
-                            Starter Business Sites from <strong className="text-slate-900 font-bold">₹19,999</strong> • Growth Portals from <strong className="text-slate-900 font-bold">₹39,999</strong>. No hidden hosting surcharges or recurring code locks.
+                        <p className="text-slate-600 text-sm sm:text-base mb-8 max-w-2xl mx-auto font-medium leading-relaxed">
+                            Every business is unique. We analyze your industry, competitors, and target audience to provide a tailored proposal with clear timelines, milestone delivery, and zero recurring code locks.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
-                                href="/pricing"
-                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#1E40AF] hover:bg-blue-800 text-white font-bold text-sm shadow-md transition-all"
+                                href="/contact"
+                                className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#1E40AF] hover:bg-[#152c7a] text-white font-bold text-sm sm:text-base shadow-lg hover:-translate-y-0.5 transition-all"
                             >
-                                Compare All Packages & Features
+                                Request Free Project Discovery
                             </Link>
                             <Link
                                 href="/portfolio"
-                                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-900 border border-slate-200 font-bold text-sm transition-all"
+                                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold text-sm sm:text-base transition-all"
                             >
-                                View Web Build Samples
+                                View Live Client Builds ↗
                             </Link>
                         </div>
                     </div>
@@ -184,27 +240,13 @@ export default function WebsiteDevelopmentPage() {
             </section>
 
             {/* FAQ */}
-            <section
-                className="container mx-auto px-4 sm:px-6 max-w-3xl mb-16 sm:mb-20 border border-slate-100 p-8 sm:p-10 rounded-3xl shadow-sm bg-white"
-                aria-label="Frequently asked questions"
-            >
+            <section className="container mx-auto px-4 sm:px-6 max-w-4xl mb-16 sm:mb-20" aria-label="Frequently asked questions">
                 <FadeUp>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 text-center tracking-tight">
-                        Frequently Asked Questions
-                    </h2>
-                    <div className="space-y-5 sm:space-y-6">
-                        {faqs.map((faq, i) => (
-                            <div key={i}>
-                                <h3 className="flex items-start gap-2 font-bold text-base sm:text-lg text-slate-800">
-                                    <HelpCircle size={20} className="text-[#1E40AF] shrink-0 mt-0.5" aria-hidden="true" />
-                                    {faq.q}
-                                </h3>
-                                <p className="text-slate-600 pl-7 mt-2 text-sm sm:text-base leading-relaxed">
-                                    {faq.a}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
+                    <FAQAccordion
+                        faqs={faqs}
+                        title="Website Development FAQs"
+                        subtitle="Clear answers on build timelines, ownership, CMS support, and maintenance."
+                    />
                 </FadeUp>
             </section>
 

@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(request: Request) {
     try {
-        const { name, company, email, service, message } = await request.json();
+        const { name, phone, company, email, service, budget, message } = await request.json();
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -15,15 +15,17 @@ export async function POST(request: Request) {
 
         const mailOptions = {
             from: process.env.SMTP_USER,
-            to: process.env.CONTACT_EMAIL,
-            subject: `New Lead from SMB Mitra: ${name} from ${company || 'Unknown Company'}`,
+            to: process.env.CONTACT_EMAIL || 'contact@smbmitra.com',
+            subject: `New Lead from SMB Mitra: ${name} (${company || 'Individual'})`,
             html: `
-        <h2>New Contact Form Submission</h2>
+        <h2>New Contact / Consultation Request</h2>
         <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone / WhatsApp:</strong> ${phone || 'N/A'}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Company:</strong> ${company || 'N/A'}</p>
-        <p><strong>Service Interested In:</strong> ${service}</p>
-        <p><strong>Message:</strong></p>
+        <p><strong>Service Interested In:</strong> ${service || 'General'}</p>
+        <p><strong>Estimated Budget:</strong> ${budget || 'Not specified'}</p>
+        <p><strong>Message / Scope:</strong></p>
         <p>${message}</p>
       `,
         };

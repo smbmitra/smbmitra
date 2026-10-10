@@ -3,7 +3,7 @@ import { blogPosts } from "@/data/blogData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://smbmitra.com";
-  const currentDate = "2026-08-13";
+  const currentDate = new Date().toISOString().split("T")[0];
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -55,12 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/pricing`,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/blog`,
       lastModified: currentDate,
       changeFrequency: "weekly",
@@ -71,6 +65,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/disclaimer`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/cookie-policy`,
+      lastModified: currentDate,
+      changeFrequency: "yearly",
+      priority: 0.5,
     },
   ];
 

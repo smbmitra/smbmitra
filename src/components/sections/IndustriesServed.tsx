@@ -30,15 +30,14 @@ export default function IndustriesServed() {
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
                     <FadeUp>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-5 sm:mb-6 tracking-tight">
-                            Engineered for{" "}
-                            <span className="bg-clip-text text-transparent"
-                                style={{ backgroundImage: "linear-gradient(135deg, #1E40AF, #F97316)" }}>
-                                Your Industry
-                            </span>
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 bg-blue-50 text-[#1E40AF] border border-blue-200/80">
+                            Industry Frameworks
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight leading-[1.15]">
+                            Engineered for Your Specific Industry.
                         </h2>
-                        <p className="text-lg sm:text-xl text-slate-600 font-medium leading-relaxed">
-                            Generic marketing fails because it lacks context. We deploy proven, industry-specific frameworks designed to dominate your local market.
+                        <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
+                            Generic marketing fails because it lacks industry context. We deploy proven, sector-specific frameworks designed to capture high-intent customers in your market.
                         </p>
                     </FadeUp>
                 </div>
@@ -67,8 +66,7 @@ export default function IndustriesServed() {
                                     {ind.icon}
                                 </div>
                                 <h3
-                                    className="font-bold text-slate-900 text-lg sm:text-xl mb-2 sm:mb-3 tracking-tight group-hover:text-transparent group-hover:bg-clip-text transition-all duration-300"
-                                    style={{ "--accent": ind.accent } as React.CSSProperties}
+                                    className="font-bold text-slate-900 text-lg sm:text-xl mb-2 sm:mb-3 tracking-tight group-hover:text-[#1E40AF] transition-colors duration-200"
                                 >
                                     {ind.name}
                                 </h3>
