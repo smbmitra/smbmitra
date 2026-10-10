@@ -155,13 +155,13 @@ export default function Header() {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E40AF] rounded-lg p-1"
+                        className="md:hidden text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E40AF] rounded-xl p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-slate-100 active:bg-slate-200 transition-colors"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
                         aria-expanded={mobileMenuOpen}
                         aria-controls="mobile-nav"
                     >
-                        {mobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
             </header>
@@ -202,10 +202,10 @@ export default function Header() {
                                 />
                                 <button
                                     onClick={closeMobileMenu}
-                                    className="text-slate-500 hover:text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E40AF] rounded-lg p-1"
+                                    className="text-slate-500 hover:text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1E40AF] rounded-xl p-2 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-slate-100 transition-colors"
                                     aria-label="Close navigation menu"
                                 >
-                                    <X size={24} />
+                                    <X size={22} />
                                 </button>
                             </div>
 

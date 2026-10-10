@@ -41,8 +41,8 @@ export default function WhyChooseUs() {
         offset: ["start end", "end start"],
     });
 
-    const scale = useTransform(scrollYProgress, [0, 0.5], prefersReducedMotion ? [1, 1] : [0.88, 1]);
-    const opacity = useTransform(scrollYProgress, [0, 0.25], prefersReducedMotion ? [1, 1] : [0, 1]);
+    const scale = useTransform(scrollYProgress, [0, 0.4], prefersReducedMotion ? [1, 1] : [0.96, 1]);
+    const opacity = useTransform(scrollYProgress, [0, 0.2], prefersReducedMotion ? [1, 1] : [0.7, 1]);
 
     return (
         <section
